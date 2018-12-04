@@ -7,24 +7,13 @@ var minCss = require('gulp-clean-css');
 var server = require('gulp-webserver');
 
 
-gulp.task('devScss', function() {
+gulp.task('devCss', function() {
     return gulp.src('./src/scss/*.scss')
         .pipe(sass())
         .pipe(minCss())
         .pipe(gulp.dest("./src/css"))
 })
 gulp.task("watch", function() {
-    return gulp.watch("./src/scss/*.scss", gulp.series('devScss'));
+    return gulp.watch("./src/scss/*.scss", gulp.series('devCss'));
 
 })
-gulp.task('server', function() {
-    return gulp.src("src")
-        .pipe(server({
-            port: 9090,
-            open: true,
-            livereload: true,
-        }))
-
-
-})
-gulp.task('dev', gulp.series('devScss', "server", 'watch'))

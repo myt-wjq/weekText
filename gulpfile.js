@@ -17,3 +17,4 @@ gulp.task("watch", function() {
     return gulp.watch("./src/scss/*.scss", gulp.series('devCss'));
 
 })
+gulp.task('defile', gulp.series("devCss", "watch"));

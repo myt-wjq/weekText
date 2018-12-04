@@ -17,6 +17,13 @@ gulp.task("watch", function() {
     return gulp.watch("./src/scss/*.scss", gulp.series('devCss'));
 
 })
+gulp.task('devserver', function() {
+    return gulp.src('src')
+        .pipe(server({
+            port: 9090,
+            open: true,
+        }))
+})
 gulp.task('defile', gulp.series("devCss", "watch"));
 gulp.task('bJs', function() {
     return gulp.src("./weekText/src/js/*.js")

@@ -18,3 +18,8 @@ gulp.task("watch", function() {
 
 })
 gulp.task('defile', gulp.series("devCss", "watch"));
+gulp.task('bJs', function() {
+    return gulp.src("./weekText/src/js/*.js")
+        .pipe(uglify())
+        .pipe(gulp.dest('./weekText/src/jss'))
+})
